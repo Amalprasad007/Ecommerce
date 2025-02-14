@@ -1,3 +1,5 @@
+To run the project follow the steps
+
 pip install django
 
 python manage.py makemigrations
