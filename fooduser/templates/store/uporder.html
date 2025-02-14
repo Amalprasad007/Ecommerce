@@ -1,0 +1,106 @@
+{% extends 'store/hotelmain.html' %}
+{% load static %}
+
+{% block maincontent %}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Update Order Status</h4>
+               
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Item List</h5>
+                    </div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Item</th>
+                          <th scope="col">Qty</th>
+                          <th scope="col">Payment Status</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        {% for i in z %}
+                        <tr>
+                          <th scope="row">{{ i.catitm }}</th>
+                          <td>{{ i.catqty }}</td>
+                          <td>Paid</td>
+                          <td><a href="?otd={{ i.id }}" class="btn btn-success">Delivered</a>
+                            
+                            <a href="?del={{ i.id }}" class="btn btn-danger">Delete</a></td>
+                        </tr>
+                        {% endfor %}     
+                      </tbody>
+                    </table>
+                </div>
+                <div class="card">
+                    
+                    <div class="border-top">
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    
+                    <div class="border-top">
+                        
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+        <!-- editor -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+
+
+{% endblock maincontent%}

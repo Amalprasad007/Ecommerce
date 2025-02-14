@@ -1,0 +1,133 @@
+{% extends 'store/hotelmain.html' %}
+{% load static %}
+
+{% block maincontent %}
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Add  items</h4>
+               
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    {% for message in messages %}
+                    <div class="alert alert-primary" role="alert">
+                        {{ message }}
+                      </div>
+                      {% endfor %}
+                    <form class="form-horizontal"  method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            <h4 class="card-title">Edit items</h4>
+                            {% for im in item %}
+                                                 <div class="form-group row">
+                                <label for="fname" class="col-sm-3 text-right control-label col-form-label">Item Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" value="{{ im.items }}" class="form-control" required name="iname" id="hname" placeholder="Item Name ">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Price</label>
+                                <div class="col-sm-9">
+                                    <input type="number" value="{{ im.price }}" required class="form-control" name="iprice" placeholder="Price" pattern="\d+(\.\d{1,2})?">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Stock</label>
+                                <div class="col-sm-9">
+                                    <input type="number" value="{{ im.qtys }}" required class="form-control" value="1" name="istock" placeholder="Stock" pattern="\d+(\.\d{1,2})?">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lname"  class="col-sm-3 text-right control-label col-form-label">Description</label>
+                                <div class="col-sm-9">
+                                    <textarea  required class="form-control" style="height:200px"  name="idsicp" placeholder="Description">{{ im.description }}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Image</label>
+                                <div class="col-sm-9">
+                                <img src="{{ im.imgs }}" width="100" height="80"/> </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Upload Image</label>
+                                <div class="col-sm-9">
+                                    <input type="file"  class="form-control" name="iimg" placeholder="Image">
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card">
+                    
+                    <div class="border-top">
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    
+                    <div class="border-top">
+                        
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+        <!-- editor -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+
+
+{% endblock maincontent%}

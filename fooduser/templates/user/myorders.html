@@ -1,0 +1,81 @@
+{% extends 'user/main.html' %}
+{% load static %}
+
+{% block usercontent %}
+<div class="w3l_banner_nav_right">
+    <!-- about -->
+            <div class="privacy about">
+                <h3>My <span>Orders</span></h3>
+                
+              <div class="checkout-right">
+                        <h4>Orders</h4>
+                    <table class="timetable_sub" id="displayTable">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                                <th>Delivery Status</th>
+                                <th>Invoice</th>
+                                <th>Cancel</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% with totals=0 %}     
+                            {% for i in catitems %}
+                            <tr class="rem1">
+                            <td class="invert-image"><a href="single.html"><img src="{{ i.catimng }}" alt="" style="max-height: 100px; max-width: 50px;" class="img-responsive"></a></td>
+                            <td class="invert">{{ i.catitm }}</td>
+
+                            <td class="invert">₹ {{ i.catprice }}</td>
+                            <td class="invert">{{ i.catqty }}</td>
+                            
+                            <td class="invert">
+                                {%  widthratio i.catprice 1 i.catqty %} 
+                            
+                               </td>
+                               <td class="invert">{{ i.catdelivey }}</td>
+                               <td class="invert"><button data-toggle="modal" class="btn btn-secondary btn-sm inbtn" value="{{ i.cattempid }}" data-target="#Invoicemodal">Invoice</button></td>
+                            <td class="invert">
+                                <div class="rem">
+                                   <a href="?del={{ i.id }}"> <div class="close1"> </div></a>
+                                </div>
+    
+                            </td>
+                        </tr>
+                        {%  endfor %}
+                        {% endwith %}
+                        
+    
+                    </tbody></table>
+                </div>
+                
+    
+            </div>
+    <!-- //about -->
+            </div>
+            <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        var table = document.getElementById('displayTable');
+        let total = 0
+        for(let i = 1; i<table.rows.length; i++){
+            total+=Number(table.rows[i].cells[4].innerText)
+        }
+       // alert(total)
+        const totalInput = document.getElementById('ttls')
+        const totalamt = document.getElementById('ttlamt')
+        totalInput.innerText="₹"+total
+        totalamt.val=total
+    });
+ 
+    $(".inbtn").click(function (e) {
+        //$('.disc').htm($(this).val());
+        var cnt=$(this).val();
+        $(".discin").load('store/invoice/'+cnt);
+        //alert(cnt);
+      });
+    </script>
+{% endblock usercontent%}

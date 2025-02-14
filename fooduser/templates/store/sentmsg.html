@@ -1,0 +1,102 @@
+{% extends 'store/hotelmain.html' %}
+{% load static %}
+
+{% block maincontent %}
+
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Sent</h4>
+               
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    {% for message in messages %}
+                    <div class="alert alert-primary" role="alert">
+                        {{ message }}
+                      </div>
+                      {% endfor %}
+                    <form class="form-horizontal" action="" method="post">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            <h4 class="card-title">Message Details</h4>
+                            <div class="form-group row">
+                               
+                                <div class="col-sm-12">
+                                    <textarea type="text" style="height:200px" class="form-control" required name="msg" id="hname" placeholder="Message Here"></textarea>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary">Send to administrator </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card">
+                    
+                    <div class="border-top">
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    
+                    <div class="border-top">
+                        
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+        <!-- editor -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+{% endblock maincontent%}

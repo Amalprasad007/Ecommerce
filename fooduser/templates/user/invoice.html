@@ -1,0 +1,84 @@
+
+
+{% for i in z %}
+        <div id='invoc'>
+        <table style="width: 600px" border="1">
+            <tbody>
+            <tr style="height: 18px;">
+            <td style="width: 100%; height: 18px;">
+            <table style="border-collapse: collapse; width: 100%; height: 199px;" border="1">
+            <tbody>
+            <tr style="height: 18px;">
+            <td style="width: 100%; height: 10px;">
+            <h1 style="text-align: center;">FOOD STORE</h1>
+            <p style="text-align: center;">INVOICE</p>
+            </td>
+            </tr>
+            <tr style="height: 18px;">
+            <td style="width: 100%; height: 18px;">&nbsp;</td>
+            </tr>
+            {% for usr in c %}
+            <tr style="height: 54px;">
+            <td style="width: 100%; height: 54px;">{{ usr.odrdanam }}<br />{{ usr.odrland }},{{ usr.odrcity }}<br />{{ usr.oddrmob }}</td>
+            </tr>
+             {%  endfor %}
+            <tr style="height: 18px;">
+            <td style="width: 100%; height: 18px;">&nbsp;</td>
+            </tr>
+            <tr style="height: 18px;">
+            <td style="width: 100%; height: 18px;">&nbsp;</td>
+            </tr>
+            <tr style="height: 18px;">
+            <td style="width: 100%; height: 18px;">
+            <table style="border-collapse: collapse; width: 100%; height: 36px;" border="1">
+            <tbody>
+            <tr style="height: 18px;">
+            <td style="width: 4.33426%; height: 18px;">&nbsp;</td>
+            <td style="width: 55.9292%; height: 18px;">Item</td>
+            <td style="width: 11.0437%; height: 18px;">Qty</td>
+            <td style="width: 12.1533%; height: 18px;">Price</td>
+            <td style="width: 16.5395%; height: 18px;">Total</td>
+            <script>
+                var totalPrice = calculateTotalPrice({{ i.catprice }},{{ i.catqty }});
+                document.getElementById('ttlprc').innerHTML = totalPrice;
+                document.getElementById('grndtotal').innerHTML = totalPrice;
+              </script>
+              </script>
+            </tr>
+            <tr style="height: 300px;" valign="top">
+            <td style="width: 4.33426%; height: 18px;">&nbsp;</td>
+            <td style="width: 55.9292%; height: 18px;">{{ i.catitm }}</td>
+            <td style="width: 11.0437%; height: 18px;">{{ i.catqty }}</td>
+            <td style="width: 12.1533%; height: 18px;">{{ i.catprice }}</td>
+            <td style="width: 16.5395%; height: 18px;" id="ttlprc"></td>
+            </tr>
+            </tbody>
+            </table>
+            </td>
+            </tr>
+            <tr style="height: 63px;">
+            <td style="width: 100%; height: 63px;">
+            <table style="border-collapse: collapse; width: 100%; height: 18px;" border="1">
+            <tbody>
+            <tr style="height: 18px;">
+            <td style="width: 71.3246%; height: 18px;">&nbsp;</td>
+            <td style="width: 12.2399%; height: 18px;">Total&nbsp;</td>
+            <td style="width: 16.4355%; height: 18px;"><strong id="grndtotal"></strong></td>
+            </tr>
+            </tbody>
+            </table>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+            </td>
+            </tr>
+            
+            </tbody>
+           
+            </table></div>
+            
+            {%  endfor %}
+            <br>
+            <button onclick="saveDiv('invoc','Title')">Print</button>
+         
